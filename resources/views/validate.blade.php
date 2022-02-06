@@ -31,9 +31,6 @@
         </form>
     </body>
     <script>
-        $( document ).ready(function() {
-            console.log( "ready!" );
-        });
         let i = 0
         $("#addRow").click(function () {
             var html = '';
@@ -52,7 +49,6 @@
             html += '</div>';
 
             $('#newRow').append(html);
-            console.log('i tambah row '+i)
         });
 
         // remove row
@@ -80,7 +76,6 @@
 
             $(this).closest('#inputFormRow').remove();
             i -= 1
-            console.log('i setelah d hapus '+i)
         });
 
         $('#form_wow').on('submit', function(e) {
@@ -92,7 +87,6 @@
                 type : 'POST',
                 dataType:'JSON',
                 success:function(response){
-                    console.log(response)
                     $('.is-invalid').removeClass('is-invalid');
                     if (response.code == 200) {
                         alert("okkkk")
@@ -105,8 +99,6 @@
                                 let number = num.toString();
                                 number = number.replaceAll('.', '');
                                 stri = stri.replaceAll('.', '');
-                                console.log(number)
-                                console.log(stri)
                                 let on = $("#"+number+"")
                                 let errorMessageID = stri+'.'+number
                                 on.find('#field-' + stri).addClass('is-invalid');
